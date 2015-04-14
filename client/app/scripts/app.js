@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-var meanMovies = angular.module('meanMovies', [
+angular.module('meanMovies', [
     //'ngAnimate',
     //'ngAria',
     //'ngCookies',
@@ -72,4 +72,4 @@ var meanMovies = angular.module('meanMovies', [
   return function(url) {
     return $sce.trustAsResourceUrl(url);
   };
-});;
+});

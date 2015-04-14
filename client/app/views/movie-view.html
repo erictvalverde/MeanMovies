@@ -1,3 +1,41 @@
 <ng-include src="'views/movie-nav.html'"></ng-include>
-<h3>{{ movie.title }}</h3>
+<h3>{{ movie.title }} <span class="pull-right" ng-show="ratingsAverage() >= 0">{{ ratingsAverage() }} Stars</span></h3>
 <youtube src="movie.url"></youtube>
+<br />
+<section id="comments">
+	<div ng-show="movie.comments.length > 0">
+	<h3>Comments</h3>
+		<div class="well well-sm">
+			<div ng-repeat="comment in movie.comments">
+				<p>{{comment.content}}</p>
+				<p><strong>{{comment.user}}</strong></p>
+				<hr>
+			</div>
+		</div>
+	</div>	
+	<h4>Rating</h4>	
+	<div class="form-group">
+	    <select id="rating" ng-model="rating" class="form-control" ng-change="saveRating()">
+	    	<option value="0">0</option>
+	    	<option value="1">1</option>
+	    	<option value="2">2</option>
+	    	<option value="3">3</option>
+	    	<option value="4">4</option>
+	    	<option value="5">5</option>
+	    </select> 
+	</div>
+	<form role="form" ng-submit="saveComment()">
+	  <h4>Add a comment</h4>
+	  <div class="form-group">
+	    <label for="name" class="control-label">Name</label>
+	    <input type="text" ng-model="comment.user" class="form-control" id="name" placeholder="Enter your name" required>
+	  </div>
+	  <div class="form-group">
+	    <label for="comment" class="control-label">Your Comment</label>
+	    <textarea ng-model="comment.content" class="form-control" id="comment" placeholder="Enter your Comment" required></textarea>
+	  </div>
+	  
+	  <input type="submit" class="btn btn-primary" value="Save">
+	</form>
+	<br />
+</section>

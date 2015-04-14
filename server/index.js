@@ -22,8 +22,6 @@ app.use(function(req, res, next) {
 });
 
 
-
-
 // Connect to MongoDB
 
 mongoose.connect('mongodb://localhost:27017/meanmovies');
