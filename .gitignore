@@ -5,3 +5,5 @@ client/dist
 client/.tmp
 client/.sass-cache
 .DS_Store
+meanmovies.sublime-project
+meanmovies.sublime-workspace
